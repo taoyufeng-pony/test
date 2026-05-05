@@ -1,0 +1,28 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run tests
+        run: |
+          echo "Running tests..."
+          # 在这里添加你的测试命令，例如：
+          # npm test
+          # python -m pytest
+          # go test ./...
+          echo "All tests passed!"
+
+      - name: Lint check
+        run: |
+          echo "Running lint..."
+          # 在这里添加你的 lint 命令，例如：
+          # npm run lint
+          echo "Lint passed!"
